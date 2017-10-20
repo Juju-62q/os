@@ -11,7 +11,7 @@ cat(int fd)
 {
   int n ,line = 1, flag = 0;
   
-  printf(1, "%d ", line++);
+  if(n_flag == 1) flag = 1;
 
   while((n = read(fd, buf, sizeof(buf))) > 0){
     if(flag){
