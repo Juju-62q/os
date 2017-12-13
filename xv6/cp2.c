@@ -56,5 +56,8 @@ int main(int argc, char *argv[]){
     write(output_file, buf, char_num);
   }
 
+  close(source_file);
+  close(output_file);
+
   exit();
 }

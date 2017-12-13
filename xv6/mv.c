@@ -32,6 +32,8 @@ int main(int argc, char *argv[]){
     exit();
   }
   
+  unlink(argv[1]);
+  
   if((output_file = open(argv[2], O_RDONLY)) < 0){
     // fileがない場合
     if((output_file = open(argv[2],O_WRONLY | O_CREATE)) < 0){
@@ -62,7 +64,8 @@ int main(int argc, char *argv[]){
     write(output_file, buf, char_num);
   }
 
-  if(str_cmp(argv[1],argv[2]))
-    unlink(argv[1]);
+  close(source_file);
+  close(output_file);
+
   exit();
 }

@@ -28,5 +28,8 @@ int main(int argc, char *argv[]){
   while((char_num = read(source_file, buf, sizeof(buf)))){
     write(output_file, buf, char_num);
   }
+
+  close(source_file);
+  close(output_file);
   exit();
 }
