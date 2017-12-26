@@ -29,3 +29,5 @@ SYSCALL(getpid)
 SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
+SYSCALL(lock)     // for lock-related system call
+SYSCALL(unlock)     // for lock-related system call

@@ -20,3 +20,5 @@
 #define SYS_link   19
 #define SYS_mkdir  20
 #define SYS_close  21
+#define SYS_lock   22     // for lock-related system call
+#define SYS_unlock 23     // for lock-related system call

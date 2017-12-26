@@ -89,3 +89,24 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int
+sys_lock(void)
+{
+  int lkid;
+  
+  if(argint(0, &lkid) < 0) {
+    return -1;
+  }
+  return lock(lkid);
+}
+
+int
+sys_unlock(void)
+{
+  int lkid;
+
+  if(argint(0, &lkid) < 0)
+    return -1;
+  return unlock(lkid);
+}
