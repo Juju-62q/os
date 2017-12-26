@@ -5,7 +5,7 @@
 #include "stat.h"
 #include "user.h"
 
-#define N 4                     /* 哲学者の数 */
+#define N 3                     /* 哲学者の数 */
 #define LEFT  (i)				/* 哲学者 i の左側フォーク番号 */
 #define RIGHT ((i+1) % N)		/* 哲学者 i の右側のフォーク番号 */
 
@@ -78,8 +78,13 @@ philosopher1(int i)
 {
   while (1) {
 	think(i);
-	take_fork(LEFT);				/* 左側のフォークを取る */
-	take_fork(RIGHT);				/* 右側のフォークを取る */
+  if (LEFT > RIGHT){
+	  take_fork(LEFT);				/* 左側のフォークを取る */
+	  take_fork(RIGHT);				/* 右側のフォークを取る */
+  }else{
+	  take_fork(RIGHT);				/* 左側のフォークを取る */
+	  take_fork(LEFT);				/* 右側のフォークを取る */
+  }
 	eat(i);
 	put_fork(LEFT);					/* 左側のフォークを置く */
 	put_fork(RIGHT);				/* 右側のフォークを置く */
